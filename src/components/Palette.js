@@ -4,12 +4,32 @@ class Palette extends React.Component{
 
   constructor(props) {
     super(props)
+    let color1 = this.getRandomColor()
+
     this.state =
-   {color1 : this.getRandomColor(),
+   {color1 : color1,
     color2 : this.getRandomColor(),
     color3 : this.getRandomColor(),
     color4 : this.getRandomColor(),
-    color5 : this.getRandomColor()}
+    color5 : this.getRandomColor(),
+    currentKey: 49,
+    currentColor: color1}
+
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  handleKeyPress(e) {
+    if (e.keyCode>48&&e.keyCode<54) {
+      this.setState({currentKey: e.keyCode})
+      this.getColorFromKey(e.keyCode)};
+  }
+
+  componentDidMount() {
+   document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+ componentWillUnmount() {
+   document.removeEventListener('keydown', this.handleKeyPress);
   }
 
   getRandomColor() {
@@ -21,10 +41,46 @@ class Palette extends React.Component{
     return color;
   }
 
+  rollForInspo() {
+    this.setState(
+     {color1 : this.getRandomColor(),
+      color2 : this.getRandomColor(),
+      color3 : this.getRandomColor(),
+      color4 : this.getRandomColor(),
+      color5 : this.getRandomColor(),
+    })
+  };
+
+  getColorFromKey(key) {
+    console.log(this)
+    switch(key) {
+      case 49:
+        let color1 = this.state.color1
+        this.setState({currentColor: color1})
+        break;
+      case 50:
+        let color2 = this.state.color2
+        this.setState({currentColor: color2})
+        break;
+      case 51:
+        let color3 = this.state.color3
+        this.setState({currentColor: color3})
+        break;
+      case 52:
+        let color4 = this.state.color4
+        this.setState({currentColor: color4})
+        break;
+      case 53:
+        let color5 = this.state.color5
+        this.setState({currentColor: color5})
+        break;
+      default:
+    }
+  }
+
   render()  {
     return(
-      <div classname = 'palette'>
-      <p> Artist's Palette </p>
+      <div className = 'palette'>
         <button
           className="color"
           onClick={ () => this.setState({color1: this.getRandomColor()})}
@@ -60,11 +116,18 @@ class Palette extends React.Component{
           5
         </button>
 
+        <button
+          onClick= { () => this.rollForInspo() }>
+          Roll for Inspiration
+        </button>
+
+        <br/>
+
+        <h1 style={{color: this.state.currentColor}}>You are currently using this lovely color!</h1>
+
       </div>
     )
-  }
-
-
-}
+  };
+};
 
 export default Palette

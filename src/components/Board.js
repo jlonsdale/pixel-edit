@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Square from './Square'
-import Palette from './Palette'
+
 
 class Board extends React.Component {
+
   renderSquare(x,y) {
     let coords = `${x},${y}`
     return <Square coords={coords} key={coords}/>;
@@ -26,11 +27,6 @@ class Board extends React.Component {
 
     return (
       <div className = "board">
-        <h1> Pixel Art Creator </h1>
-        <div className = 'palette'>
-          <Palette/>
-         <br />
-        </div>
         <div>
           {rows}
         </div>
