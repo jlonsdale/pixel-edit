@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Square from './Square'
+import Palette from './Palette'
 
 class Board extends React.Component {
   renderSquare(x,y) {
@@ -8,7 +9,6 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: X';
     var rows = [];
 
     for (var j=1; j<21; j++) {
@@ -27,12 +27,16 @@ class Board extends React.Component {
     return (
       <div className = "board">
         <h1> Pixel Art Creator </h1>
+        <div className = 'palette'>
+          <Palette/>
+         <br />
+        </div>
         <div>
-        {rows}
+          {rows}
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default Board

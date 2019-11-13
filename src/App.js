@@ -9,6 +9,7 @@ class App extends React.Component {
 
       <div>
         <Board />
+
       </div>
 
     )
