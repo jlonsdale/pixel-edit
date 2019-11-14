@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Palette from './components/Palette'
-import Board from './components/Board'
+import Master from './components/Master'
 import './StyleSheet.css'
 
 class App extends React.Component {
@@ -11,9 +10,8 @@ class App extends React.Component {
 
         <h1> Pixel Art Creator </h1>
 
-        <Palette />
-        <Board />
-        
+        <Master />
+
       </div>
     );
   };
