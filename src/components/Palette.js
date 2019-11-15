@@ -25,31 +25,36 @@ class Palette extends React.Component{
       <div className = 'palette'>
         <button
           className="color"
-          style={{backgroundColor:this.props.colors.color1}}>
+          style={{backgroundColor:this.props.colors.color1}}
+          onClick= {() => this.props.setColorFromPress(this.props.colors.color1)}>
           1
         </button>
 
         <button
           className="color"
-          style={{backgroundColor:this.props.colors.color2}}>
+          style={{backgroundColor:this.props.colors.color2}}
+          onClick= {() => this.props.setColorFromPress(this.props.colors.color2)}>
           2
         </button>
 
         <button
           className="color"
-          style={{backgroundColor:this.props.colors.color3}}>
+          style={{backgroundColor:this.props.colors.color3}}
+          onClick= {() => this.props.setColorFromPress(this.props.colors.color3)}>
           3
         </button>
 
         <button
           className="color"
-          style={{backgroundColor:this.props.colors.color4}}>
+          style={{backgroundColor:this.props.colors.color4}}
+          onClick= {() => this.props.setColorFromPress(this.props.colors.color4)}>
           4
         </button>
 
         <button
           className="color"
-          style={{backgroundColor:this.props.colors.color5}}>
+          style={{backgroundColor:this.props.colors.color5}}
+          onClick= {() => this.props.setColorFromPress(this.props.colors.color5)}>
           5
         </button>
 

@@ -39,7 +39,6 @@ class Master extends React.Component{
   };
 
   setColorFromKey(key) {
-    console.log(this)
     switch(key) {
       case 49:
         let color1 = this.state.color1
@@ -65,6 +64,10 @@ class Master extends React.Component{
     }
   }
 
+  setColorFromPress(color) {
+    this.setState({currentColor: color})
+  }
+
   render() {
     return(
       <div>
@@ -73,6 +76,7 @@ class Master extends React.Component{
         rollForInspo = {() => this.rollForInspo()}
         colors = {this.state}
         setColorFromKey = {(key) => this.setColorFromKey(key)}
+        setColorFromPress = {(color) => this.setColorFromPress(color)}
          />
 
         <Board currentColor = {this.state.currentColor} />
